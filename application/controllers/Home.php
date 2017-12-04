@@ -11,8 +11,10 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['title']='Ebru Bayburtlu';
+		$data['sliders']=$this->Project_Model->GetSlider();
 		$data['projects']=$this->Project_Model->GetAllProjects();
+		$this->load->view('header',$data);
 		$this->load->view('index',$data);
-		
+		$this->load->view('footer');
 	}
 }

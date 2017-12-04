@@ -1,34 +1,16 @@
 ﻿
 
-<div class="index__carousel">
-<!-- Flickity HTML init -->
-<div class="animated fadeIn gallery">
 
-<?php foreach($sliders as $slider ) { ?>
-  <div class="gallery-cell" style="background-image: url(<?=base_url('assets/uploads/'.$slider->Image)?>">
-  	
-    <div class="row carousel__text align-middle align-center">
-    	<div class="shrink columns">
-    	   <h1><a href="#"><?=$slider->Header?></a></h1>
-    	</div>
-    </div>
-
-  </div>
-
-<?php }?>
-
-</div>
-</div>
-
-<section class="index__content">
-<div class="row">
-	<div class="columns">
-		<p class="text-center excerpt__highlight">Recent</p>
-	</div>
+<!-- Animation -->
+<div class="animated fadeIn">
+<!-- Content -->
+<section class="content">
+<section class="projects__content">
+<div class="row columns text-center">
+<h4 class="excerpt__highlight">Projects</h4>
 </div>
 
 <div class="row">
-
 
 
   <?php 
@@ -48,9 +30,7 @@
   <?php } ?>
 
 
-
 </div>
-
 </section>
 </section>
 <!-- End Content -->
@@ -60,4 +40,3 @@
 </div>
 <!-- End Content Wrapper -->
 
-<!-- Footer -->
