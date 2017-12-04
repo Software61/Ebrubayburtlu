@@ -18,7 +18,7 @@
 <link rel="canonical" href="index.html" />
 <meta property="og:url" content="index.html" />
 <meta property="og:site_name" content="Shaheen Baig Casting" />
-<meta property="og:image" content="assets/img/meta/og-image.png" />
+<meta property="og:image" content="<?=base_url('assets/img/meta/og-image.png')?>" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@" />
 <meta name="google-site-verification" content="CrJH-kVLym9He_sw0P3ddlqRIWlFL8XslSYYJN9tLEk" />
@@ -26,21 +26,19 @@
 {"name":"Shaheen Baig Casting","description":"London-based casting director working on projects as diverse as Control, Black Mirror and The Impossible","author":null,"@type":"WebSite","url":"http://shaheenbaigcasting.com/","image":"http://shaheenbaigcasting.com/assets/img/meta/og-image.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://shaheenbaigcasting.com/assets/img/layout/logo.svg"}},"headline":"Shaheen Baig Casting","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-<title>Shaheen Baig Casting</title>
+<title><?=$title?></title>
 
 <!-- Icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="assets/icons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="assets/icons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="assets/icons/manifest.json">
-<link rel="shortcut icon" href="assets/icons/favicon.ico">
-<meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
+<link rel="apple-touch-icon" sizes="180x180" href="<?=base_url('assets/icons/apple-touch-icon.png')?>">
+<link rel="icon" type="image/png" href="<?=base_url('assets/icons/favicon-32x32.png')?>" sizes="32x32">
+<link rel="icon" type="image/png" href="<?=base_url('assets/icons/favicon-16x16.png')?>" sizes="16x16">
+<link rel="manifest" href="<?=base_url('assets/icons/manifest.json')?>">
+<link rel="shortcut icon" href="<?=base_url('assets/icons/favicon.ico')?>">
+<meta name="msapplication-config" content="<?=base_url('/assets/icons/browserconfig.xml')?>">
 <meta name="theme-color" content="#f2f2f2">
 
-<link rel="stylesheet" type="text/css" href="assets/css/app.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/app.css')?>">
 		
-<link rel="canonical" href="index.html">
-<link rel="alternate" type="application/rss+xml" title="Shaheen Baig Casting" href="feed.xml">
 
 
 <script>
@@ -67,7 +65,7 @@
 <div class="overlay" id="overlay" data-toggler=".open">
   <nav class="overlay-menu">
     <ul>
-        <li class="element"><a href="film/index.html">Film</a></li>
+        <li class="element"><a href="<?=base_url('Film')?>">Film</a></li>
         <li class="element"><a href="television/index.html">Television</a></li>
         <li class="element"><a href="short/index.html">Short</a></li>
         <li class="element"><a href="info.html">Info</a></li>
@@ -127,7 +125,7 @@
 <!-- check to see if the data file has a submenu, and if so display it -->
 
 
-<!— display the top level navigation for items that don’t have a submenu -->
+
 <li>
 <a href="info.html">Info</a>
 
@@ -136,8 +134,6 @@
       
 <!-- check to see if the data file has a submenu, and if so display it -->
 
-
-<!— display the top level navigation for items that don’t have a submenu -->
 
     
     
@@ -160,7 +156,7 @@
 <div class="animated fadeIn gallery">
 
 
-<div class="gallery-cell" style="background-image: url(uploads/shaheen-baig-casting-three-girls-slide.jpg)">
+<div class="gallery-cell" style="background-image: url(<?=base_url('assets/uploads/shaheen-baig-casting-three-girls-slide.jpg')?>">
 	
 <div class="row carousel__text align-middle align-center">
 	<div class="shrink columns">
@@ -170,7 +166,7 @@
 
 </div>
 
-<div class="gallery-cell" style="background-image: url(uploads/shaheen-baig-casting-gods-own-country-65272a.jpg)">
+<div class="gallery-cell" style="background-image: url(<?=base_url('assets/uploads/shaheen-baig-casting-gods-own-country-65272a.jpg')?>)">
 	
 <div class="row carousel__text align-middle align-center">
 	<div class="shrink columns">
@@ -180,45 +176,7 @@
 
 </div>
 
-<div class="gallery-cell" style="background-image: url(uploads/shaheen-baig-casting-england-is-mine-d2ae8f.jpg)">
-	
-<div class="row carousel__text align-middle align-center">
-	<div class="shrink columns">
-	<h1><a href="#">England Is Mine</a></h1>
-	</div>
-</div>
 
-</div>
-
-<div class="gallery-cell" style="background-image: url(uploads/shaheen-baig-casting-lady-macbeth-slide.jpg)">
-	
-<div class="row carousel__text align-middle align-center">
-	<div class="shrink columns">
-	<h1><a href="#">Lady Macbeth</a></h1>
-	</div>
-</div>
-
-</div>
-
-<div class="gallery-cell" style="background-image: url(uploads/shaheen-baig-casting-freefire-slide.jpg)">
-	
-<div class="row carousel__text align-middle align-center">
-	<div class="shrink columns">
-	<h1><a href="#">Free Fire</a></h1>
-	</div>
-</div>
-
-</div>
-
-<div class="gallery-cell" style="background-image: url(uploads/shaheen-baig-casting-slide-control.jpg)">
-	
-<div class="row carousel__text align-middle align-center">
-	<div class="shrink columns">
-	<h1><a href="#">Control</a></h1>
-	</div>
-</div>
-
-</div>
 
 </div>
 </div>
@@ -233,155 +191,24 @@
 <div class="row">
 
 
-<div class="small-12 medium-6 large-4 columns">
-<article class="excerpt">
-<!-- Image -->
-<a href="#">
-<div class="excerpt__image">
-<img src="uploads/shaheen-baig-casting-the-commuter.jpg" alt="Philip K. Dick's Electric Dreams: The Commuter" />
-</div>
-</a>
-<!-- End Image -->
 
-<!-- Title -->
-<h3 class="excerpt__title text-center"><a href="#">Philip K. Dick's Electric Dreams: The Commuter</a></h2>
-<!-- End Title -->
-
-<!-- Director -->
-<!-- <p class="excerpt__director"><a href="/projects/philip-k-dicks-electric-dreams-the-commuter/">Director: Tom Harper</a></p> -->
-<!-- End Director -->
-
-<!-- With -->
-<!-- <p class="excerpt__with"><a href="/projects/philip-k-dicks-electric-dreams-the-commuter/">With: Tim Spall</a></p> -->
-<!-- End With -->
-
-</article>
-</div>
-
-<div class="small-12 medium-6 large-4 columns">
-<article class="excerpt">
-<!-- Image -->
-    
-    <a href="#">
-        <div class="excerpt__image">
-            <img src="uploads/shaheen-baig-casting-the-hoodmaker.jpg" alt="Philip K. Dick's Electric Dreams: The Hoodmaker" />
+  <?php 
+   foreach($projects as $project){
+  ?>
+        <div class="small-12 medium-6 large-4 columns">
+          <article class="excerpt">
+            <a href="#">
+              <div class="excerpt__image">
+                <img src="<?=base_url('assets/uploads/'.$project->Cover)?>" alt="<?=$project->Header?>" />
+              </div>
+            </a>
+            <h3 class="excerpt__title text-center"><a href="#"><?=$project->Header?></a></h2>
+            
+          </article>
         </div>
-    </a>
-<!-- End Image -->
+  <?php } ?>
 
-<!-- Title -->
-<h3 class="excerpt__title text-center"><a href="#">Philip K. Dick's Electric Dreams: The Hoodmaker</a></h2>
-<!-- End Title -->
 
-<!-- Director -->
-<!-- <p class="excerpt__director"><a href="/projects/philip-k-dicks-electric-dreams-the-hoodmaker/">Director: Julian Jarrold</a></p> -->
-<!-- End Director -->
-
-<!-- With -->
-<!-- <p class="excerpt__with"><a href="/projects/philip-k-dicks-electric-dreams-the-hoodmaker/">With: Richard Madden & Holliday Grainger</a></p> -->
-<!-- End With -->
-
-</article>
-</div>
-
-<div class="small-12 medium-6 large-4 columns">
-<article class="excerpt">
-<!-- Image -->
-    <a href="#">
-        <div class="excerpt__image">
-            <img src="uploads/shaheen-baig-casting-crazy-diamond.jpg" alt="Philip K. Dick's Electric Dreams: Crazy Diamond" />
-        </div>
-    </a>
-<!-- End Image -->
-
-<!-- Title -->
-<h3 class="excerpt__title text-center"><a href="#">Philip K. Dick's Electric Dreams: Crazy Diamond</a></h2>
-<!-- End Title -->
-
-<!-- Director -->
-<!-- <p class="excerpt__director"><a href="/projects/philip-k-dicks-electric-dreams-crazy-diamond/">Director: Marc Munden</a></p> -->
-<!-- End Director -->
-
-<!-- With -->
-<!-- <p class="excerpt__with"><a href="/projects/philip-k-dicks-electric-dreams-crazy-diamond/">With: Steve Buscemi, Julia Davis & Sidse Babett-Knudsen</a></p> -->
-<!-- End With -->
-
-</article>
-</div>
-
-<div class="small-12 medium-6 large-4 columns">
-<article class="excerpt">
-    <a href="#">
-        <div class="excerpt__image">
-            <img src="uploads/shaheen-baig-casting-impossible-planet.jpg" alt="Philip K. Dick's Electric Dreams: Impossible Planet" />
-        </div>
-    </a>
-<!-- End Image -->
-
-<!-- Title -->
-<h2 class="excerpt__title text-center"><a href="#">Philip K. Dick's Electric Dreams: Impossible Planet</a></h2>
-<!-- End Title -->
-
-<!-- Director -->
-<!-- <p class="excerpt__director"><a href="/projects/philip-k-dicks-electric-dreams-impossible-planet/">Director: David Farr</a></p> -->
-<!-- End Director -->
-
-<!-- With -->
-<!-- <p class="excerpt__with"><a href="/projects/philip-k-dicks-electric-dreams-impossible-planet/">With: Geraldine Chaplin, Jack Reynor & Benedict Wong</a></p> -->
-<!-- End With -->
-
-</article>
-</div>
-
-<div class="small-12 medium-6 large-4 columns">
-<article class="excerpt">
-<!-- Image -->
-    <a href="#">
-        <div class="excerpt__image">
-            <img src="uploads/shaheen-baig-casting-human-is.jpg" alt="Philip K. Dick's Electric Dreams: Human Is" />
-        </div>
-    </a>
-<!-- End Image -->
-
-<!-- Title -->
-<h3 class="excerpt__title text-center"><a href="#">Philip K. Dick's Electric Dreams: Human Is</a></h3>
-<!-- End Title -->
-
-<!-- Director -->
-<!-- <p class="excerpt__director"><a href="/projects/philip-k-dicks-electric-dreams-human-is/">Director: Francesca Gregorini</a></p> -->
-<!-- End Director -->
-
-<!-- With -->
-<!-- <p class="excerpt__with"><a href="/projects/philip-k-dicks-electric-dreams-human-is/">With: Bryan Cranston & Essie Davis</a></p> -->
-<!-- End With -->
-
-</article>
-</div>
-
-<div class="small-12 medium-6 large-4 columns">
-<article class="excerpt">
-<!-- Image -->
-    <a href="#">
-        <div class="excerpt__image">
-            <img src="uploads/shaheen-baig-casting-peaky-blinders-season-four.jpg" alt="Peaky Blinders Season Four" />
-        </div>
-    </a>
-<!-- End Image -->
-
-<!-- Title -->
-<h2 class="excerpt__title text-center"><a href="#">Peaky Blinders Season Four</a></h2>
-<!-- End Title -->
-
-<!-- Director -->
-<!-- <p class="excerpt__director"><a href="/projects/peaky-blinders-season-four/">Director: David Caffrey</a></p> -->
-<!-- End Director -->
-
-<!-- With -->
-<!-- <p class="excerpt__with"><a href="/projects/peaky-blinders-season-four/">With: </a></p> -->
-<!-- End With -->
-
-</article>
-</div>
 
 </div>
 
