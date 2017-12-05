@@ -55,7 +55,19 @@
 </head>
 
 <body>
-	
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-left-long" viewBox="0 0 16 16">
+<title>left-long</title>
+<path class="path1" d="M16 7.5h-14.085l2.795-2.795-0.71-0.705-4 4 4 4 0.705-0.705-2.79-2.795h14.085v-1z"></path>
+</symbol>
+<symbol id="icon-right-long" viewBox="0 0 16 16">
+<title>right-long</title>
+<path class="path1" d="M0 8.5h14.085l-2.795 2.795 0.71 0.705 4-4-4-4-0.705 0.705 2.79 2.795h-14.085v1z"></path>
+</symbol>
+
+</defs>
+</svg>
 
 <script>document.body.className += ' fade-out';</script>
 
@@ -65,11 +77,10 @@
 <div class="overlay" id="overlay" data-toggler=".open">
   <nav class="overlay-menu">
     <ul>
-        <li class="element"><a href="<?=base_url('Film')?>">Film</a></li>
-        <li class="element"><a href="television/index.html">Television</a></li>
-        <li class="element"><a href="short/index.html">Short</a></li>
-        <li class="element"><a href="info.html">Info</a></li>
-        <li class="element"><a href="../twitter.com/https_/twitter.com/sbaigcasting.html">Follow</a></li>
+       <?php foreach ($projecttypes as $projectType) {?>
+        <li class="element"><a href="<?=base_url('/Projects/Type/'.$projectType->Name)?>"><?=$projectType->Name?></a></li>
+      <?php } ?>
+        <li class="element"><a href="<?=base_url('/Info')?>">Info</a></li>
     </ul>
   </nav>
 </div>
@@ -107,35 +118,18 @@
 <!-- check to see if the data file has a submenu, and if so display it -->
 
 <li>
-    <a href="<?=base_url('/Projeler')?>">Projeler</a>
+    <a href="<?=base_url('/Projects')?>">Projects</a>
     <ul class="menu">
-	  
-      <li><a href="<?=base_url('/Projeler/Type/Film')?>">Film</a></li>
-      
-      <li><a href="<?=base_url('/Projeler/Type/Television')?>">Television</a></li>
-      
-      <li><a href="<?=base_url('/Projeler/Type/Short')?>">Short</a></li>
-      
-      <li><a href="<?=base_url('/Projeler/Type/InProduction')?>">In Production</a></li>
-      
+	   <?php foreach ($projecttypes as $projectType) {?>
+      <li><a href="<?=base_url('/Projects/Type/'.$projectType->Name)?>"><?=$projectType->Name?></a></li>
+     <?php } ?>
     </ul>
 </li>
-
-    
-<!-- check to see if the data file has a submenu, and if so display it -->
-
-
 
 <li>
 <a href="<?=base_url('/Info')?>">Info</a>
 
 </li>
-    
-      
-<!-- check to see if the data file has a submenu, and if so display it -->
-
-
-    
     
 	</ul>
 	

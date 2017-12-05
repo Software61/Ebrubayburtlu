@@ -28,6 +28,12 @@ class Project_Model extends CI_Model{
 				->get()
 				->result();
 	}
+	function GetAllProjectTypes(){
+		return $this->db->select('*')
+				->from("projecttype")
+				->get()
+				->result();
+	}
 	function GetProjectAsType($type){
 		return $this->db->select('*')
 				->from("projects")
@@ -43,16 +49,42 @@ class Project_Model extends CI_Model{
 				->result()[0];
 	}
 
-	function GetSliderLeft($id){
+	function GetProjectLeft($id){
 		return $this->db->select('*')
 				->from("projects")
 				->where("ProjectId<".$id)
 				->order_by("ProjectId", "desc")
 				->get()
-				->result()[0];
+				->result();
 
 	}
+	function GetProjectRight($id){
+		return $this->db->select('*')
+				->from("projects")
+				->where("ProjectId>".$id)
+				->order_by("ProjectId", "asc")
+				->get()
+				->result();
 
+	}
+	function RemoveSlider($id){
+		return $this->db->delete('slider')
+						->where('sliderId',$id);
+	}
+	function InsertSlider($sliderData){
+		return $this->db->insert('slider',$sliderData);
+	}
+	function InsertProject($projectData){
+		return $this->db->insert('slider',$projectData);
+	}
+	function RemoveProject($id){
+		return $this->db->delete('projects')
+						->where('ProjectId',$id);
+	}
+	function UpdateProject($projectData){
+		return $this->db->insert('projects',$projectData)
+						->where('ProjectId',$projectData->ProjectId);
+	}
 }
 
 ?>

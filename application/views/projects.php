@@ -18,12 +18,12 @@
   ?>
         <div class="small-12 medium-6 large-4 columns">
           <article class="excerpt">
-            <a href="#">
+            <a href="<?=base_url('Projects/Project/'.$project->ProjectId)?>">
               <div class="excerpt__image">
                 <img src="<?=base_url('assets/uploads/'.$project->Cover)?>" alt="<?=$project->Header?>" />
               </div>
             </a>
-            <h3 class="excerpt__title text-center"><a href="#"><?=$project->Header?></a></h2>
+            <h3 class="excerpt__title text-center"><a href="<?=base_url('Projects/Project/'.$project->ProjectId)?>"><?=$project->Header?></a></h2>
             
           </article>
         </div>

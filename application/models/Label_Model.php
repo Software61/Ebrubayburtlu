@@ -14,6 +14,10 @@ class Label_Model extends CI_Model{
 				->get()
 				->result()[0]->value;
 	}
+	function UpdateValue($name,$value){
+		return $this->db->update('label',array('value'=>$value))
+					->where("name",$name);
+	}
 
 }
 

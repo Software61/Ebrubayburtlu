@@ -60,30 +60,48 @@ if($project->VideoPath==""){
 
 <div class="project__pagination">
   <div class="row">
+       <?php if(sizeof($left)>0){
+        ?>
+            <div class="small-6 columns">
+              
+              <a href="<?=base_url('Projects/Project/'.$left[0]->ProjectId)?>">
+                <div class="pagination">
+                <p><svg class="icon icon-arrow-right8"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-left-long"></use></svg></p>
+                <p class="hide-for-small-only"><?=$left[0]->Header?></p>
+                </div>
+              </a>
+          
         
+            </div>
+        <?php
+        }else{
+          ?>
         <div class="small-6 columns">
           
-    <a href="/projects/philip-k-dicks-electric-dreams-the-commuter/">
-        <div class="pagination">
-        <p><svg class="icon icon-arrow-right8"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-left-long"></use></svg></p>
-        <p class="hide-for-small-only">Philip K. Dick's Electric Dreams: The Commuter</p>
         </div>
-      </a>
+          <?php
+        }
+       ?>
+     
+      <?php if(sizeof($right)>0){
+        ?>
+             <div class="small-6 columns text-right">
       
-    
-    </div>
-                         
+              <a href="<?=base_url('Projects/Project/'.$right[0]->ProjectId)?>">
+                <div class="pagination">
+                  <p><svg class="icon icon-arrow-left8"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-right-long"></use></svg></p>
+                  <p class="hide-for-small-only"><?=$right[0]->Header?></p>
+                </div>
+              </a>
+            
+            </div>
+        <?php
+        }
+       ?>     
+
+
         
-        <div class="small-6 columns text-right">
-      
-    <a href="/projects/philip-k-dicks-electric-dreams-crazy-diamond/">
-        <div class="pagination">
-          <p><svg class="icon icon-arrow-left8"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-right-long"></use></svg></p>
-          <p class="hide-for-small-only">Philip K. Dick's Electric Dreams: Crazy Diamond</p>
-        </div>
-      </a>
-    
-    </div>
+   
     
     </div>
 </div>

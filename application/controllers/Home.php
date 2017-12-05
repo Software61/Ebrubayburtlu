@@ -12,6 +12,7 @@ class Home extends CI_Controller {
 	{
 		$data['title']='Ebru Bayburtlu';
 		$data['sliders']=$this->Project_Model->GetSlider();
+		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$data['projects']=$this->Project_Model->GetAllProjects();
 		$this->load->view('header',$data);
 		$this->load->view('index',$data);

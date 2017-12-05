@@ -12,7 +12,7 @@ class ProjectType_Model extends CI_Model{
 				->from("projecttype")
 				->where("Name",$name)
 				->get()
-				->result()[0]->ProjectTypeId;
+				->result();
 	}
 }
 
