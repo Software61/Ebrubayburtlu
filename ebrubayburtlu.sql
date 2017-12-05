@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 04 Ara 2017, 19:38:08
+-- Üretim Zamanı: 05 Ara 2017, 19:45:58
 -- Sunucu sürümü: 10.1.21-MariaDB
 -- PHP Sürümü: 5.6.30
 
@@ -38,7 +38,8 @@ CREATE TABLE `label` (
 
 INSERT INTO `label` (`labelid`, `name`, `value`) VALUES
 (1, 'info', 'Ben Ebru Bayburtlu. Bu sitenin sahibiyim.'),
-(2, 'mail', 'info@ebrubayburtlu.com');
+(2, 'mail', 'info@ebrubayburtlu.com'),
+(3, 'phone', '+90 212 568 90 90');
 
 -- --------------------------------------------------------
 
@@ -51,11 +52,20 @@ CREATE TABLE `projects` (
   `ProjectTypeId` int(11) NOT NULL,
   `Header` varchar(100) NOT NULL,
   `Director` varchar(100) NOT NULL,
+  `Vitrin` int(11) NOT NULL,
   `With` varchar(300) NOT NULL,
   `Cover` text NOT NULL,
   `VideoPath` text NOT NULL,
   `CreateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `projects`
+--
+
+INSERT INTO `projects` (`ProjectId`, `ProjectTypeId`, `Header`, `Director`, `Vitrin`, `With`, `Cover`, `VideoPath`, `CreateDate`) VALUES
+(1, 1, 'Aksiyon Filmi', 'Eren Akbaş', 1, 'Ömür Buruk', 'shaheen-baig-casting-al-sur-de-granada.jpg', 'https://www.youtube.com/embed/A7n1pKXTC4g', '2017-12-04 19:08:39'),
+(2, 2, 'Dram Filmi', 'Ömür BURUK', 0, 'Eren Akbaş', 'shaheen-baig-casting-three-girls-slide.jpg', '', '2017-12-04 19:12:24');
 
 -- --------------------------------------------------------
 
@@ -67,6 +77,34 @@ CREATE TABLE `projecttype` (
   `ProjectTypeId` int(11) NOT NULL,
   `Name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `projecttype`
+--
+
+INSERT INTO `projecttype` (`ProjectTypeId`, `Name`) VALUES
+(1, 'Film'),
+(2, 'Televizyon');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `slider`
+--
+
+CREATE TABLE `slider` (
+  `SliderId` int(11) NOT NULL,
+  `Header` text NOT NULL,
+  `Image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `slider`
+--
+
+INSERT INTO `slider` (`SliderId`, `Header`, `Image`) VALUES
+(1, 'Three Girls', 'shaheen-baig-casting-three-girls-slide.jpg'),
+(2, 'God’s Own Country', 'shaheen-baig-casting-gods-own-country-65272a.jpg');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -91,6 +129,12 @@ ALTER TABLE `projecttype`
   ADD PRIMARY KEY (`ProjectTypeId`);
 
 --
+-- Tablo için indeksler `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`SliderId`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -98,17 +142,22 @@ ALTER TABLE `projecttype`
 -- Tablo için AUTO_INCREMENT değeri `label`
 --
 ALTER TABLE `label`
-  MODIFY `labelid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `labelid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Tablo için AUTO_INCREMENT değeri `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `ProjectId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ProjectId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Tablo için AUTO_INCREMENT değeri `projecttype`
 --
 ALTER TABLE `projecttype`
-  MODIFY `ProjectTypeId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ProjectTypeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- Tablo için AUTO_INCREMENT değeri `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `SliderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
