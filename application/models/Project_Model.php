@@ -35,6 +35,23 @@ class Project_Model extends CI_Model{
 				->get()
 				->result();
 	}
+	function GetProjectAsID($id){
+		return $this->db->select('*')
+				->from("projects")
+				->where("ProjectId",$id)
+				->get()
+				->result()[0];
+	}
+
+	function GetSliderLeft($id){
+		return $this->db->select('*')
+				->from("projects")
+				->where("ProjectId<".$id)
+				->order_by("ProjectId", "desc")
+				->get()
+				->result()[0];
+
+	}
 
 }
 
