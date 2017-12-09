@@ -7,14 +7,14 @@ class Projects extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Project_Model');
 		$this->load->model('ProjectType_Model');
+			$this->load->model('Site_Model');
 	}
 
 	public function index()
 	{
-		$data['title']='Ebru Bayburtlu';
+		$siteData=$this->Site_Model->GetSiteData();
 		$data['projects']=$this->Project_Model->GetAllProjects();
-		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
-		$this->load->view('header',$data);
+		$this->load->view('header',$siteData);
 		$this->load->view('projects',$data);
 		$this->load->view('footer');
 	}
@@ -22,9 +22,8 @@ class Projects extends CI_Controller {
 	{
 		
 		$sendtypes=$this->ProjectType_Model->GetProjectTypeId($type);
-		$data['title']='Ebru Bayburtlu';
-		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
-		$this->load->view('header',$data);
+		$siteData=$this->Site_Model->GetSiteData();
+		$this->load->view('header',$siteData);
 		if(sizeof($sendtypes)>0){
 			$sendtype=$sendtypes[0]->ProjectTypeId;
 			$data['projects']=$this->Project_Model->GetProjectAsType($sendtype);
@@ -37,10 +36,9 @@ class Projects extends CI_Controller {
 		$data['project']=$this->Project_Model->GetProjectAsID($id);
 		$data['left']=$this->Project_Model->GetProjectLeft($id);
 		$data['right']=$this->Project_Model->GetProjectRight($id);
-		$data['title']='Ebru Bayburtlu';
-		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
+		$siteData=$this->Site_Model->GetSiteData();
 
-		$this->load->view('header',$data);
+		$this->load->view('header',$siteData);
 		$this->load->view('project_detail',$data);
 		$this->load->view('footer');
 	}

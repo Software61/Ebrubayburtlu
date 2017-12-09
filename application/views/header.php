@@ -38,7 +38,7 @@
 <meta name="theme-color" content="#f2f2f2">
 
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/app.css')?>">
-		
+    
 
 
 <script>
@@ -51,6 +51,7 @@
   ga('send', 'pageview');
 
 </script>
+
 </head>
 
 <body>
@@ -87,7 +88,7 @@
 <!-- End Menu --> 
 
 <!-- Content Wrapper -->
-<div class="content-wrapper">	
+<div class="content-wrapper"> 
   
 
 
@@ -97,7 +98,7 @@
 <section class="content">
 <div class="index__wrapper">
 <div class="title-bar show-for-small-only" >
-	<img style="width:60px; height:60px;" src="<?=base_url('assets/uploads/proje1.webp')?>" />
+  <img class="profile-img"  alt="<?=$title?>" src="<?=base_url('assets/uploads/'.$logo)?>" />
   <div class="title-bar-title"><a href="<?=base_url('/Home')?>" class="header__home"><?=$title?></a></div>
     <button class="hamburger hamburger--collapse" id="toggle" data-toggler=".is-active" type="button" data-toggle="overlay toggle">
       <span class="hamburger-box">
@@ -111,10 +112,10 @@
 
   <div class="top-bar-left">
   
-	<ul class="vertical medium-horizontal dropdown menu primary-menu" data-dropdown-menu>
-	<img style="width:60px; height:60px;" src="<?=base_url('assets/uploads/proje1.webp')?>" />
-	<li class="hide-for-small-only"><a href="<?=base_url('/Home')?>" class="header__home"><?=$title?></a></li>
-	
+  <ul class="vertical medium-horizontal dropdown menu primary-menu" data-dropdown-menu>
+  <img class="profile-img" alt="<?=$title?>" src="<?=base_url('assets/uploads/'.$logo)?>" />
+  <li class="hide-for-small-only"><a href="<?=base_url('/Home')?>" class="header__home"><?=$title?></a></li>
+  
     
         
 <!-- check to see if the data file has a submenu, and if so display it -->
@@ -122,7 +123,7 @@
 <li>
     <a href="<?=base_url('/Projects')?>">Projects</a>
     <ul class="menu">
-	   <?php foreach ($projecttypes as $projectType) {?>
+     <?php foreach ($projecttypes as $projectType) {?>
       <li><a href="<?=base_url('/Projects/Type/'.$projectType->Name)?>"><?=$projectType->Name?></a></li>
      <?php } ?>
     </ul>
@@ -133,15 +134,21 @@
 
 </li>
     
-	</ul>
-	
+  </ul>
+  
     
   </div>
   <div class="top-bar-right hide-for-small-only">
     <ul class="menu align-right">
-    	<li><a href="../www.facebook.com">FB</a></li>
-    	<li><a href="../twitter.com">TW</a></li>
-    	<li><a href="../www.instagram.com">IN</a></li>
+      <?php 
+        foreach($social as $soc){
+
+          ?>
+            <li><a target="blank" href="<?=$soc->value?>"><?=$soc->short?></a></li>
+            <?php
+        }
+
+      ?>
     </ul>
   </div>
 </div>

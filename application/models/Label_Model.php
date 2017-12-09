@@ -14,9 +14,16 @@ class Label_Model extends CI_Model{
 				->get()
 				->result()[0]->value;
 	}
+	function GetSocialValue(){
+		return $this->db->select('*')
+				->from("label")
+				->where("type",'social')
+				->get()
+				->result();
+	}
 	function UpdateValue($name,$value){
-		return $this->db->where("name",$name)
-						->update('label',array('value'=>$value));
+		return $this->db->update('label',array('value'=>$value))
+					->where("name",$name);
 	}
 	
 
