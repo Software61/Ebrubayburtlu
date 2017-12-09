@@ -6,7 +6,9 @@
 <!-- Content -->
 <section class="content">
 <section class="projects__content">
+
 <div class="row columns text-center">
+
 <h4 class="excerpt__highlight">Projects</h4>
 </div>
 
@@ -16,7 +18,9 @@
   <?php 
    foreach($projects as $project){
   ?>
-        <div class="small-12 medium-6 large-4 columns">
+        <div class="small-12 medium-6 large-4 columns" style="border:#ccc solid 1px; padding: 5px;">
+           <button class="btn-success">Düzenle</button>
+           <button class="btn-danger" >Sil</button>
           <article class="excerpt">
             <a href="<?=base_url('Projects/Project/'.$project->ProjectId)?>">
               <div class="excerpt__image">

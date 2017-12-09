@@ -23,7 +23,7 @@
 <section class="index__content">
 <div class="row">
 	<div class="columns">
-		<p class="text-center excerpt__highlight">Recent</p>
+		<p class="text-center excerpt__highlight">Casting Director</p>
 	</div>
 </div>
 

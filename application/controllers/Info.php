@@ -13,7 +13,9 @@ class Info extends CI_Controller {
 	{
 		$data['title']='Ebru Bayburtlu';
 		$data['info']=$this->Label_Model->GetValue('info');
-		$data['mail']=$this->Label_Model->GetValue('mail');
+		$data['infoheader']=$this->Label_Model->GetValue('infoheader');
+		$data['contactheader']=$this->Label_Model->GetValue('contactheader');
+		$data['email']=$this->Label_Model->GetValue('email');
 		$data['phone']=$this->Label_Model->GetValue('phone');
 		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$this->load->view('header',$data);

@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" style="margin-top: 50px">
 <!-- Footer Bottom -->
 <div class="row expanded footer__bottom">
 
@@ -17,5 +17,7 @@
 <!-- End Footer -->
 </body>
 <script src="<?=base_url('assets/js/min/app-min.js')?>"></script>
+<script src="<?=base_url('assets/js/jquery.min.js')?>"></script>
+<script src="<?=base_url('assets/js/helperJS/admin.js')?>"></script>
 <!-- Mirrored from shaheenbaigcasting.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Dec 2017 18:34:19 GMT -->
 </html>

@@ -1,18 +1,19 @@
 
 <?php
 
-class Label_Model extends CI_Model{
+class Admin_Model extends CI_Model{
 	
 	function __construct(){
 		parent::__construct();
 		$this->load->database();
 	}
-	function GetValue($key){
+	function Login($username,$password){
 		return $this->db->select('*')
-				->from("label")
-				->where("name",$key)
+				->from("admin")
+				->where("username",$username)
+				->where("password",$password)
 				->get()
-				->result()[0]->value;
+				->result();
 	}
 	function UpdateValue($name,$value){
 		return $this->db->update('label',array('value'=>$value))

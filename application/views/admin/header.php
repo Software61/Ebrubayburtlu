@@ -38,9 +38,86 @@
 <meta name="theme-color" content="#f2f2f2">
 
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/app.css')?>">
-		
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/myCss.css')?>">
+<style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+.edit-span{
+      position: absolute;
+    z-index: 999;
+    left: 10px;
+    top: 53px;
+    font-size: 30px;
+    cursor: pointer;
+}
+</style>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -77,10 +154,9 @@
 <div class="overlay" id="overlay" data-toggler=".open">
   <nav class="overlay-menu">
     <ul>
-       <?php foreach ($projecttypes as $projectType) {?>
-        <li class="element"><a href="<?=base_url('/Projects/Type/'.$projectType->Name)?>"><?=$projectType->Name?></a></li>
-      <?php } ?>
-        <li class="element"><a href="<?=base_url('/Info')?>">Info</a></li>
+        <li class="element"><a href="<?=base_url('/Admin/Projects')?>">Projects</a></li>
+        <li class="element"><a href="<?=base_url('/Admin/Info')?>">Info</a></li>
+        <li class="element"><a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a></li>
     </ul>
   </nav>
 </div>
@@ -98,8 +174,8 @@
 <section class="content">
 <div class="index__wrapper">
 <div class="title-bar show-for-small-only" >
-	<img style="width:60px; height:60px;" src="<?=base_url('assets/uploads/proje1.webp')?>" />
-  <div class="title-bar-title"><a href="<?=base_url('/Home')?>" class="header__home"><?=$title?></a></div>
+	<img style="width:60px; height:60px; border-radius: 50%;"   src="<?=base_url('assets/uploads/proje1.webp')?>" />
+  <div class="title-bar-title"><a href="<?=base_url('/Admin/Home')?>" class="header__home"><?=$title?></a></div>
     <button class="hamburger hamburger--collapse" id="toggle" data-toggler=".is-active" type="button" data-toggle="overlay toggle">
       <span class="hamburger-box">
       <span class="hamburger-inner hamburger-inner-dark"></span>
@@ -113,7 +189,7 @@
   <div class="top-bar-left">
   
 	<ul class="vertical medium-horizontal dropdown menu primary-menu" data-dropdown-menu>
-	<img style="width:60px; height:60px;" src="<?=base_url('assets/uploads/proje1.webp')?>" />
+	<img style="width:60px; height:60px; border-radius: 50%;" src="<?=base_url('assets/uploads/proje1.webp')?>" />
 	<li class="hide-for-small-only"><a href="<?=base_url('/Home')?>" class="header__home"><?=$title?></a></li>
 	
     
@@ -121,16 +197,16 @@
 <!-- check to see if the data file has a submenu, and if so display it -->
 
 <li>
-    <a href="<?=base_url('/Projects')?>">Projects</a>
-    <ul class="menu">
-	   <?php foreach ($projecttypes as $projectType) {?>
-      <li><a href="<?=base_url('/Projects/Type/'.$projectType->Name)?>"><?=$projectType->Name?></a></li>
-     <?php } ?>
-    </ul>
+    <a href="<?=base_url('/Admin/Projects')?>">Projects</a>
+    
 </li>
 
 <li>
-<a href="<?=base_url('/Info')?>">Info</a>
+<a href="<?=base_url('/Admin/Info')?>">Info</a>
+
+</li>
+<li>
+<a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a>
 
 </li>
     
@@ -138,12 +214,5 @@
 	
     
   </div>
-  <div class="top-bar-right hide-for-small-only">
-    <ul class="menu align-right">
-    	<li><a href="../www.facebook.com">FB</a></li>
-    	<li><a href="../twitter.com">TW</a></li>
-    	<li><a href="../www.instagram.com">IN</a></li>
-    </ul>
   </div>
-</div>
 </div>

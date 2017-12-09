@@ -1,10 +1,17 @@
 ﻿<!-- Animation -->
-<div class="animated fadeIn">
+<div class="animated fadeIn" style="margin-top: 30px;">
 <!-- Content -->
 <section class="content">
 <section class="projects__content">
 
 <!-- Title -->
+<div class="row page__title">
+	<div class="small-12 columns text-center">
+		<center>
+			<img style="width:180px;height:180px;" src="<?=base_url('assets/uploads/profile.webp')?>">
+		</center>
+	</div>
+</div>
 <div class="row page__title">
 	<div class="small-12 columns text-center">
 		<h4 class="excerpt__highlight">Info</h4>
@@ -34,7 +41,7 @@
 <!-- Content -->
 <div class="row align-center text-center">
 	<div class="small-11 medium-10 large-8 columns">
-		<p><a href="mailto:<?=$mail?>"><?=$mail?></a><br>
+		<p><a href="mailto:<?=$email?>"><?=$email?></a><br>
     <a href="tel:<?=$phone?>"><?=$phone?></a><p>
 	</div>
 </div>

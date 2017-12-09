@@ -1,0 +1,93 @@
+.delete-span{
+	    position: absolute;
+    z-index: 999;
+    right: 10px;
+    top: 53px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+form {
+  width: 600px;
+  background: #ccc;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 16px;
+}
+
+form ol {
+  padding-left: 0;
+}
+
+form li, div > p {
+  background: #040303;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  list-style-type: none;
+  border: 1px solid black;
+}
+
+form img {
+height: 500px;
+    width: 100%;
+    order: 1;
+}
+
+form p {
+  line-height: 32px;
+  padding-left: 10px;
+}
+
+.fileUpload, form button {
+  background-color: #4c4b4b;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px ridge black;
+  font-size: 0.8rem;
+  height: auto;
+}
+
+.fileUpload:hover, form button:hover {
+  background-color: #222222;
+  color: white;
+}
+
+.fileUpload:active, form button:active {
+  background-color: 4c4b4b;
+  color: white;
+}
+.fileUpload{
+	color:white;
+}
+.formInput {
+	border-radius: 13px;
+}
+.btn{
+	    width: 100%;
+    height: 35px;
+    font-size: 15px;
+   }
+.lbl{
+	font-family: "Graphik-Bold-Web", Helvetica, Roboto, Arial, sans-serif;
+}
+.btn-success{
+	background-color: #5bc0de!important;
+    height: 25px;
+    border-radius: 8px;
+    width: 25%;
+    margin-right: 50%;
+
+}
+.btn-danger{
+	background-color: #d9534f!important;
+    height: 25px;
+    border-radius: 8px;
+    width: 20%;
+    margin-left: 3%;
+}

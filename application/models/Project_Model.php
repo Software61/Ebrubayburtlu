@@ -18,7 +18,8 @@ class Project_Model extends CI_Model{
 		return $this->db->select('*')
 				->from("projects")
 				->where("vitrin","1")
-				->limit('6')
+				->limit('9')
+				->order_by('rand()')
 				->get()
 				->result();
 	}
@@ -68,8 +69,7 @@ class Project_Model extends CI_Model{
 
 	}
 	function RemoveSlider($id){
-		return $this->db->delete('slider')
-						->where('sliderId',$id);
+		return $this->db->delete('slider',array("sliderId"=>$id));
 	}
 	function InsertSlider($sliderData){
 		return $this->db->insert('slider',$sliderData);
@@ -78,12 +78,15 @@ class Project_Model extends CI_Model{
 		return $this->db->insert('slider',$projectData);
 	}
 	function RemoveProject($id){
-		return $this->db->delete('projects')
-						->where('ProjectId',$id);
+		return $this->db->delete('slider',array("ProjectId"=>$id));
 	}
 	function UpdateProject($projectData){
-		return $this->db->insert('projects',$projectData)
+		return $this->db->update('projects',$projectData)
 						->where('ProjectId',$projectData->ProjectId);
+	}
+	function UpdateSlider($sliderData){
+		return $this->db->update('slider',$sliderData)
+						->where('sliderId',$sliderData->SliderId);
 	}
 }
 
