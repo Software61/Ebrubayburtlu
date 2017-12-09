@@ -49,6 +49,10 @@ class Admin extends CI_Controller {
 		$this->Project_Model->RemoveSlider($imageId);
 		return true;
 	}
+	public function DeleteProject($imageId){
+		$this->Project_Model->RemoveProject($imageId);
+		return true;
+	}
 	public function InsertSlider(){
 		$resimAdi=generate_uri(uniqid()).".jpg";
 		  		$config['upload_path']          = './assets/uploads/';
@@ -192,6 +196,7 @@ class Admin extends CI_Controller {
 		$data['title']='Ebru Bayburtlu';
 		$data['infoheader']=$this->Label_Model->GetValue('infoheader');
 		$data['info']=$this->Label_Model->GetValue('info');
+		$data['contactheader']=$this->Label_Model->GetValue('contactheader');
 		$data['email']=$this->Label_Model->GetValue('email');
 		$data['phone']=$this->Label_Model->GetValue('phone');
 		$data['profile']=$this->Label_Model->GetValue('profile');
@@ -221,7 +226,7 @@ class Admin extends CI_Controller {
 
 	                }
 	                $data["Profile"]=$resimAdi;
-	                $this->Label_Model->Update('profile',$data["Profile"]);
+	                $this->Label_Model->UpdateValue('profile',$data["Profile"]);
          }
 
 		$data["InfoHeader"]=$this->input->post('infoheader');
@@ -229,16 +234,18 @@ class Admin extends CI_Controller {
 		$data["ContactHeader"]=$this->input->post('contactheader');
 		$data["Mail"]=$this->input->post('email');
 		$data["Phone"]=$this->input->post('phone');
-		$this->Label_Model->Update('infoheader',$data["InfoHeader"]);
-		$this->Label_Model->Update('info',$data["Info"]);
-		$this->Label_Model->Update('contactheader',$data["ContactHeader"]);
-		$this->Label_Model->Update('email',$data["Mail"]);
-		$this->Label_Model->Update('phone',$data["Phone"]);
+		$this->Label_Model->UpdateValue('infoheader',$data["InfoHeader"]);
+		$this->Label_Model->UpdateValue('info',$data["Info"]);
+		$this->Label_Model->UpdateValue('contactheader',$data["ContactHeader"]);
+		$this->Label_Model->UpdateValue('email',$data["Mail"]);
+		$this->Label_Model->UpdateValue('phone',$data["Phone"]);
 
 		redirect(base_url('Info'));
 	}
 	public function SocialEdit(){
 		$data['title']='Ebru Bayburtlu';
+		$data['imdb']=$this->Label_Model->GetValue('imdb');
+		$data['vimeo']=$this->Label_Model->GetValue('vimeo');
 		$data['facebook']=$this->Label_Model->GetValue('facebook');
 		$data['twitter']=$this->Label_Model->GetValue('twitter');
 		$data['instagram']=$this->Label_Model->GetValue('instagram');
@@ -248,12 +255,16 @@ class Admin extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function SocialUpdate(){
+		$social["imdb"]=$this->input->post("imdb");
+		$social["vimeo"]=$this->input->post("vimeo");
 		$social["facebook"]=$this->input->post("facebook");
 		$social["twitter"]=$this->input->post("twitter");
 		$social["instagram"]=$this->input->post("instagram");
-		$this->Label_Model->Update('facebook',$social["facebook"]);
-		$this->Label_Model->Update('twitter',$social["twitter"]);
-		$this->Label_Model->Update('instagram',$social["instagram"]);
+		$this->Label_Model->UpdateValue('imdb',$social["imdb"]);
+		$this->Label_Model->UpdateValue('vimeo',$social["vimeo"]);
+		$this->Label_Model->UpdateValue('facebook',$social["facebook"]);
+		$this->Label_Model->UpdateValue('twitter',$social["twitter"]);
+		$this->Label_Model->UpdateValue('instagram',$social["instagram"]);
 		redirect(base_url('Admin/SocialEdit'));
 	}
 	public function UpdateAdmin(){

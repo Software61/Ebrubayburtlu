@@ -12,3 +12,17 @@ function DeleteSlider(id){
         });
     }
   }
+  function DeleteProject(id){
+    if(confirm("Proje silinecektir. Onaylıyor musunuz?")){
+        $.ajax({
+            type:'GET',
+            url:"DeleteProject/"+id,
+            data:{},
+            success:function(data){
+                var className=".forRemove"+id;
+                $(className).remove();
+                location.reload();
+            }
+        });
+    }
+  }

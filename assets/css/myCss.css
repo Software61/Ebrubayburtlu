@@ -91,3 +91,14 @@ form p {
     width: 20%;
     margin-left: 3%;
 }
+
+.btn-primary{
+    margin-left: 94%;
+    margin-bottom: 15px;
+    width: 80px;
+    height: 35px;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    border-radius: 8px;
+}

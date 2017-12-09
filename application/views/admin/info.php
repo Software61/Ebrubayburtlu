@@ -1,5 +1,13 @@
 <div style="margin-top: 80px;">
 
+
+
+
+
+
+
+
+
   <form method="POST" enctype="multipart/form-data" action="<?=base_url('Admin/UpdateInfo')?>">
   <div>
    <label class="lbl"> Başlık </label>
@@ -8,6 +16,8 @@
     <textarea class="formInput" style="height: 100px;" name="info" required="">
         <?=$info?>
     </textarea>
+    <label class="lbl">İletişim</label>
+    <input type="text" name="contactheader" class="formInput" value="<?=$contactheader?>">
     <label class="lbl"> E-Posta </label>
     <input type="text" name="email" class="formInput" value="<?=$email?>"/>
         <label class="lbl"> Telefon </label>

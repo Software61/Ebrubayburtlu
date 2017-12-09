@@ -78,7 +78,7 @@ class Project_Model extends CI_Model{
 		return $this->db->insert('slider',$projectData);
 	}
 	function RemoveProject($id){
-		return $this->db->delete('slider',array("ProjectId"=>$id));
+		return $this->db->delete('projects',array("ProjectId"=>$id));
 	}
 	function UpdateProject($projectData){
 		return $this->db->update('projects',$projectData)
