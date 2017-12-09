@@ -1,6 +1,6 @@
 <div style="margin-top: 80px;">
 
-  <form method="post" enctype="multipart/form-data">
+  <form method="POST" enctype="multipart/form-data" action="<?=base_url('Admin/UpdateInfo')?>">
   <div>
    <label class="lbl"> Başlık </label>
     <input type="text" name="infoheader" class="formInput" value="<?=$infoheader?>" required="">
@@ -22,7 +22,6 @@
     <p>Seçili Dosya Yok</p>
   </div>
   <div>
-    <button class="btn">Kaydet</button>
-  </div>
+        <input type="submit" class="btn btn-primary" style="color: black;" value="Kaydet" />
 </form>
 </div>

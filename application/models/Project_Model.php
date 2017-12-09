@@ -84,9 +84,10 @@ class Project_Model extends CI_Model{
 		return $this->db->update('projects',$projectData)
 						->where('ProjectId',$projectData->ProjectId);
 	}
-	function UpdateSlider($sliderData){
-		return $this->db->update('slider',$sliderData)
-						->where('sliderId',$sliderData->SliderId);
+	function UpdateSlider($sliderData,$sliderId){
+		return $this->db->where('SliderId',$sliderId)
+						->update('slider',$sliderData);
+						
 	}
 }
 

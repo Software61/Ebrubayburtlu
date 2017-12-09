@@ -51,7 +51,6 @@
   ga('send', 'pageview');
 
 </script>
-
 </head>
 
 <body>

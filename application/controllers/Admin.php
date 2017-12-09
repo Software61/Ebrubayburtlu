@@ -74,7 +74,7 @@ class Admin extends CI_Controller {
 		redirect(base_url('Admin'));
 	}
 	public function UpdateSlider(){
-		if($FILES){
+ 
 			$resimAdi=generate_uri(uniqid()).".jpg";
 			  		$config['upload_path']          = './assets/uploads/';
 	                $config['allowed_types']        = 'gif|jpg|png';
@@ -82,6 +82,7 @@ class Admin extends CI_Controller {
 	                $config['max_width']            = 9999;
 	                $config['max_height']           = 9999;
 	                $config['file_name']			=$resimAdi;
+
 	        $this->load->library('upload', $config);
 	        if ( ! $this->upload->do_upload('image_uploads'))
 	                {
@@ -93,11 +94,11 @@ class Admin extends CI_Controller {
 	                {
 
 	                }
-	                $project["Image"]=$resimAdi;
-         }
-        $slider["SliderId"]=$this->input->post('sliderId');
+        $slider["Image"]=$resimAdi;
+
+        $sliderId=$this->input->post('sliderId');
 		$slider["Header"]=$this->input->post('header');
-		$this->Project_Model->UpdateSlider($slider);
+		$this->Project_Model->UpdateSlider($slider,$sliderId);
 		redirect(base_url('Admin'));
 	}
 	public function Projects(){
