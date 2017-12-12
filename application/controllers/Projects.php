@@ -36,6 +36,7 @@ class Projects extends CI_Controller {
 		$data['project']=$this->Project_Model->GetProjectAsID($id);
 		$data['left']=$this->Project_Model->GetProjectLeft($id);
 		$data['right']=$this->Project_Model->GetProjectRight($id);
+		$data['same']=$this->Project_Model->GetProjectAsType($data['project']->ProjectTypeId);
 		$siteData=$this->Site_Model->GetSiteData();
 
 		$this->load->view('header',$siteData);

@@ -30,10 +30,11 @@
 
 <!-- Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="<?=base_url('assets/icons/apple-touch-icon.png')?>">
-<link rel="icon" type="image/png" href="<?=base_url('assets/icons/favicon-32x32.png')?>" sizes="32x32">
-<link rel="icon" type="image/png" href="<?=base_url('assets/icons/favicon-16x16.png')?>" sizes="16x16">
+<link rel="icon" type="image/png" href="<?=base_url('assets/icons/logo.ico')?>" sizes="32x32">
+<link rel="icon" type="image/png" href="<?=base_url('assets/icons/logo.ico')?>" sizes="16x16">
 <link rel="manifest" href="<?=base_url('assets/icons/manifest.json')?>">
-<link rel="shortcut icon" href="<?=base_url('assets/icons/favicon.ico')?>">
+<link rel="icon" href="<?=base_url('assets/icons/logo.ico')?>" type="image/x-icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta name="msapplication-config" content="<?=base_url('/assets/icons/browserconfig.xml')?>">
 <meta name="theme-color" content="#f2f2f2">
 
@@ -174,7 +175,7 @@
 <section class="content">
 <div class="index__wrapper">
 <div class="title-bar show-for-small-only" >
-	<img style="width:60px; height:60px; border-radius: 50%;"   src="<?=base_url('assets/uploads/proje1.webp')?>" />
+	<img class="profile-img" src="<?=base_url('assets/uploads/'.$logo)?>" />
   <div class="title-bar-title"><a href="<?=base_url('/Admin/Home')?>" class="header__home"><?=$title?></a></div>
     <button class="hamburger hamburger--collapse" id="toggle" data-toggler=".is-active" type="button" data-toggle="overlay toggle">
       <span class="hamburger-box">
@@ -189,7 +190,7 @@
   <div class="top-bar-left">
   
 	<ul class="vertical medium-horizontal dropdown menu primary-menu" data-dropdown-menu>
-	<img style="width:60px; height:60px; border-radius: 50%;" src="<?=base_url('assets/uploads/proje1.webp')?>" />
+	<img class="profile-img"  src="<?=base_url('assets/uploads/'.$logo)?>" />
 	<li class="hide-for-small-only"><a href="<?=base_url('/Home')?>" class="header__home"><?=$title?></a></li>
 	
     
@@ -209,10 +210,34 @@
 <a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a>
 
 </li>
+ <li>
+        <a href="<?=base_url('Admin/Settings')?>">Ayarlar</li></a>
+      <li>
+         <a href="<?=base_url('Admin/Logout')?>">Çıkış</li></a>
     
 	</ul>
 	
     
   </div>
+  <div class="top-bar-right">
+    <div class="float-right">
+    
+  <button class="dropbtn"><img src="<?=base_url('assets/icons/user.png')?>" class="img-right"> Hesap</button>
+  <div class="dropdown-content" style="display: none;">
+<ul class="vertical menu right-menu">
+      <li>
+        <a href="<?=base_url('Admin/Settings')?>"><img src="<?=base_url('assets/icons/settings.png')?>" class="img-right">Ayarlar</li></a>
+      <li>
+         <a href="<?=base_url('Admin/Logout')?>"><img src="<?=base_url('assets/icons/singout.png')?>" class="img-right">Çıkış</li></a>
+    </ul>
+  </div>
+    </div>
+  </div>
+
   </div>
 </div>
+<script type="text/javascript">
+  $(".dropbtn").click(function(){
+    $(".dropdown-content").toggle();
+  })
+</script>

@@ -22,8 +22,8 @@ class Label_Model extends CI_Model{
 				->result();
 	}
 	function UpdateValue($name,$value){
-		return $this->db->update('label',array('value'=>$value))
-					->where("name",$name);
+		return $this->db->where("name",$name)
+						->update('label',array('value'=>$value));
 	}
 	
 

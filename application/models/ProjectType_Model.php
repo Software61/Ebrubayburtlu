@@ -14,6 +14,17 @@ class ProjectType_Model extends CI_Model{
 				->get()
 				->result();
 	}
+	function InsertProjectType($name){
+		return $this->db->insert('projecttype',$name);
+	}
+
+	function UpdateProjectType($name,$categoryId){
+		return $this->db->where('ProjectTypeId',$categoryId)
+						->update('projecttype',$name);
+	}
+	function DeleteProjectType($id){
+		return $this->db->delete('projecttype',array("ProjectTypeId"=>$id));
+	}
 }
 
 ?>

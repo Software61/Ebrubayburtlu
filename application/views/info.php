@@ -8,13 +8,13 @@
 <div class="row page__title">
 	<div class="small-12 columns text-center">
 		<center>
-			<img style="width:180px;height:180px;" src="<?=base_url('assets/uploads/profile.webp')?>">
+			<img alt="<?=$title?>" title="<?=$title?>" style="width:180px;height:180px;" src="<?=base_url('assets/uploads/'.$logo)?>">
 		</center>
 	</div>
 </div>
 <div class="row page__title">
 	<div class="small-12 columns text-center">
-		<h4 class="excerpt__highlight">Info</h4>
+		<h4 class="excerpt__highlight"><?=$infoheader?></h4>
 	</div>
 </div>
 <!-- End Title -->
@@ -60,8 +60,7 @@
 <!-- Colophon -->
 <div class="row align-center text-center colophon">
 	<div class="small-11 medium-10 large-8 columns">
-		<p>Tüm resimler ve vidyolar '©Ebrubayburtlu' tarafıma aittir<br>
-            <a href="http://SoftWare61.com">Site Design + Development - Software61</a><p>
+            <a href="http://www.facebook.com/WeBuruk">Site Design + Development - Software61</a><p>
 	</div>
 </div>
 <!-- End Colophon -->

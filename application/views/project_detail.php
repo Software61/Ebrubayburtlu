@@ -18,20 +18,14 @@
 <?php
 
 if($project->VideoPath==""){
-
 ?>
 
 <div class="row post__hero align-center">
 <div class="small-12 medium-8 columns">
-
 <img src="<?=base_url('assets/uploads/'.$project->Cover)?>" alt="<?=$project->Header?>">
 
-
 </div>
 </div>
-
-
-
 <div class="row post__content">
   <div class="small-12 columns text-center">
     
@@ -98,53 +92,38 @@ if($project->VideoPath==""){
         <?php
         }
        ?>     
-
-
-        
-   
-    
     </div>
 </div>
-
-</div>
-</div>
-<!-- End Pagination -->
-
-<!-- Post Share Bottom -->
-<!--
-<div class="row project__share">
-  <div class="small-12 columns text-center">
-    <ul class="menu simple align-center">
-      <li>
-<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.insideretail.com&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
-<svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
-</a>
-</li>
-
-<li>
-<a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.insideretail.com&text=:%20http%3A%2F%2Fwww.insideretail.com" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;">
-<svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
-</a>
-</li>
-
-<li>
-<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.insideretail.com" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg></a>
-</li>
-      </ul>
+<?php
+if(sizeof($same)>0){
+  ?>
+   <div class="small-12 columns text-center">
+      <h1>Benzer İçerikler</h1>
   </div>
-</div>
--->
-<!-- End Post Share Bottom -->
+  <?php
+}
 
+ foreach ($same as $sam) { ?>
+ <center>
+    <div class="small-12 medium-6 large-4 columns">
+          <article class="excerpt">
+            <a href="<?=base_url('Projects/Project/'.$sam->ProjectId)?>">
+              <div class="excerpt__image">
+                <img src="<?=base_url('assets/uploads/'.$sam->Cover)?>" alt="<?=$sam->Header?>" title="<?=$sam->Header?>" />
+              </div>
+            </a>
+            <h3 class="excerpt__title text-center"><a href="<?=base_url('Projects/Project/'.$sam->ProjectId)?>"><?=$sam->Header?></a></h3>
+            
+          </article>
+        </div>
+</center>
+<?php } ?>
+
+</div>
+</div>
 </section>
-
-
-
 </section>
-<!-- End Content -->
 </div>
-<!-- End Animation -->
+</div>
 
-</div>
-<!-- End Content Wrapper -->
 

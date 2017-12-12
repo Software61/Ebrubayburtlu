@@ -7,7 +7,7 @@
 
 <?php foreach($sliders as $slider ) { ?>
   <div class="gallery-cell forRemove<?=$slider->SliderId?>" style="background-image: url(<?=base_url('assets/uploads/'.$slider->Image)?>"> 
-    <span class="edit-span myBtn" data-target="<?=$slider->SliderId?>" id="myBtn">Edit</span>
+    <span class="edit-span myBtn" data-target="<?=$slider->SliderId?>" data-value="<?=$slider->Header?>" id="myBtn">Edit</span>
   	<span class="delete-span" onclick="DeleteSlider(<?=$slider->SliderId?>)">X</span>
     <div class="row carousel__text align-middle align-center">
     	<div class="shrink columns">
@@ -47,7 +47,7 @@
   </div>
   
   <div>
-    <input type="submit" class="btn btn-primary" style="color: black;" value="Kaydet" />
+    <input type="submit" class="btn gray" value="Kaydet" />
   </div>
 </form>
 
@@ -59,20 +59,20 @@
   <div class="modal-content">
       <span class="close" style="margin-top: -13px;">x</span>
     <div class="modal-header">
-     Slider Güncelle
+    
+      <h3> Slider Güncelle</h3>
     </div>
     <div class="modal-body">
     <form method="POST" enctype="multipart/form-data"  action="<?=base_url('Admin/UpdateSlider')?>">
        <label class="lbl">Dosya Seçiniz</label>
       <input type="file" name="image_uploads" id="image_uploads" />
       <label class="lbl">Üzerindeki Yazı</label>
-      <input type="text" name="header" id="header" class="formInput">
+      <input type="text" name="header" id="headerModal" class="formInput">
       <div name="formSlider" id="formSlider"></div>
       <button type="submit" class="btn btn-default">Kaydet</button>
       </form>
     </div>
     <div class="modal-footer">
-      <h3>Modal Footer</h3>
     </div>
   </div>
 
@@ -102,7 +102,8 @@ var span = document.getElementsByClassName("close")[0];
 
 $(".myBtn").click(function() {
 modal.style.display = "block";                        // Append the text to <li>
-    sliderUpdate.innerHTML='<input type="text" name="sliderId" id="sliderId" style="display:none;" value="'+$(this).attr("data-target")+'"/>'; 
+    sliderUpdate.innerHTML='<input type="text" name="sliderId" id="sliderId" style="display:none;" value="'+$(this).attr("data-target")+'"/>';
+    $("#headerModal").val($(this).attr("data-value"));
 });
 
 
@@ -118,58 +119,7 @@ window.onclick = function(event) {
     }
 }
 </script>
-<script type="text/javascript">
-  var input = document.getElementById('image_uploads');
-var preview = document.querySelector('.preview');
-
-input.style.opacity = 0;input.addEventListener('change', updateImageDisplay);function updateImageDisplay() {
-  while(preview.firstChild) {
-    preview.removeChild(preview.firstChild);
-  }
-
-  var curFiles = input.files;
-  if(curFiles.length === 0) {
-    var para = document.createElement('p');
-    para.textContent = 'No files currently selected for upload';
-    preview.appendChild(para);
-  } else {
-    var list = document.createElement('ol');
-    preview.appendChild(list);
-    for(var i = 0; i < curFiles.length; i++) {
-      var listItem = document.createElement('li');
-       if(validFileType(curFiles[i])) {
-       var image = document.createElement('img');
-        image.src = window.URL.createObjectURL(curFiles[i]);
-        listItem.appendChild(image);
-      } 
-
-      list.appendChild(listItem);
-    }
-  }
-}var fileTypes = [
-  'image/jpeg',
-  'image/pjpeg',
-  'image/png'
-]
-
-function validFileType(file) {
-  for(var i = 0; i < fileTypes.length; i++) {
-    if(file.type === fileTypes[i]) {
-      return true;
-    }
-  }
-
-  return false;
-}function returnFileSize(number) {
-  if(number < 1024) {
-    return number + 'bytes';
-  } else if(number > 1024 && number < 1048576) {
-    return (number/1024).toFixed(1) + 'KB';
-  } else if(number > 1048576) {
-    return (number/1048576).toFixed(1) + 'MB';
-  }
-}
-</script>
+<script src="<?=base_url('assets/js/preview.js')?>"></script>
 
 <!-- End Content Wrapper -->
 

@@ -15,6 +15,9 @@ class Admin_Model extends CI_Model{
 				->get()
 				->result();
 	}
+	function UpdateAccount($info){
+		return $this->db->update('admin',$info);		
+	}
 	function UpdateValue($name,$value){
 		return $this->db->update('label',array('value'=>$value))
 					->where("name",$name);

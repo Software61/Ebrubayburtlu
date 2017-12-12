@@ -19,6 +19,6 @@
     <input type="text" name="twitter" id="twitter" class="formInput" value="<?=$twitter?>">
     <label class="lbl"> INSTAGRAM </label>
     <input type="text" name="instagram" id="instagram" class="formInput" value="<?=$instagram?>">
-     <input type="submit" class="btn btn-primary" style="color: black;" value="Kaydet" />
+     <input type="submit" class="btn gray"  value="Kaydet" />
   </form>
 </div>

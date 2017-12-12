@@ -11,13 +11,14 @@
     position: relative;
     overflow: hidden;
 }
-form {
-  width: 600px;
-  background: #ccc;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid black;
-  border-radius: 16px;
+form { 
+    background: #ccc;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 16px;
+        max-width: 600px;
+        width: 100%;
 }
 
 form ol {
@@ -101,4 +102,42 @@ form p {
     background-color: #5cb85c;
     border-color: #4cae4c;
     border-radius: 8px;
+}
+.right-menu{
+position: absolute;
+    background-color: #f7f7f7 !important;
+    color: black;
+    width: 80px;
+    margin-left: -4px;
+    margin-top: 4px;
+    padding: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.img-right{
+  width: 14px;float: left;margin-top: 5px;
+}
+.top-bar-right{
+  color: black; margin-right: 20px;
+}
+.float-right{
+  float: right;
+}
+.btn-pType{
+      margin-right: 95%;
+    margin-top: -55px;
+    background-color: #5cb75c;
+    min-width:150px;
+    width: auto;
+    border-radius: 5px;
+    padding: 1%;
+}
+.form-cancel{
+  color: black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 3%;
+    width: 255px;
+    display: none;
 }

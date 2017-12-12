@@ -10,6 +10,7 @@ class Project_Model extends CI_Model{
 	function GetSlider(){
 		return $this->db->select('*')
 				->from("slider")
+				->order_by("SliderId","desc")
 				->get()
 				->result();
 	}
@@ -26,6 +27,7 @@ class Project_Model extends CI_Model{
 	function GetAllProjects(){
 		return $this->db->select('*')
 				->from("projects")
+				->order_by('ProjectId','desc')
 				->get()
 				->result();
 	}
@@ -39,6 +41,7 @@ class Project_Model extends CI_Model{
 		return $this->db->select('*')
 				->from("projects")
 				->where("projecttypeid",$type)
+				->order_by('ProjectId','desc')
 				->get()
 				->result();
 	}
@@ -75,14 +78,14 @@ class Project_Model extends CI_Model{
 		return $this->db->insert('slider',$sliderData);
 	}
 	function InsertProject($projectData){
-		return $this->db->insert('slider',$projectData);
+		return $this->db->insert('projects',$projectData);
 	}
 	function RemoveProject($id){
 		return $this->db->delete('projects',array("ProjectId"=>$id));
 	}
-	function UpdateProject($projectData){
-		return $this->db->update('projects',$projectData)
-						->where('ProjectId',$projectData->ProjectId);
+	function UpdateProject($projectData,$projectId){
+		return $this->db->where('ProjectId',$projectId)
+						->update('projects',$projectData);
 	}
 	function UpdateSlider($sliderData,$sliderId){
 		return $this->db->where('SliderId',$sliderId)
