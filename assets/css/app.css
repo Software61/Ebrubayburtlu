@@ -7428,3 +7428,9 @@ span.project_meta_detail {
 .margin-top-50{
   margin-top: 50px;
 }
+.close-span{
+    font-size: 35px;
+    position: absolute;
+    margin-left: 90%;
+    cursor: pointer;
+}

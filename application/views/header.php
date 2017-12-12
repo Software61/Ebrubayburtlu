@@ -19,6 +19,8 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@" />
 <meta name="google-site-verification" content="CrJH-kVLym9He_sw0P3ddlqRIWlFL8XslSYYJN9tLEk" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="<?=base_url('/assets/js/myJs.js')?>"></script>
 <script type="application/ld+json">
 {"name":"Ebru Bayburtlu","description":"İstanbul - Cast direktörü Ebru Bayburtlu, kontrollü olarak projelerde çalışma, yönetim ve planlama.","author":"Ömür BURUK","@type":"WebSite","url":"http://ebrubayburtlu.com/","image":"http://ebrubayburtlu.com/assets/img/logo.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://ebrubayburtlu.com/assets/img/logo.jpg"}},"headline":"Ebru Bayburtlu","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
 <title><?=$title?></title>
@@ -55,6 +57,7 @@
 </svg>
 <script>document.body.className += ' fade-out';</script>
 <div class="overlay" id="overlay" data-toggler=".open">
+  <span class="close-span" >X</span>
   <nav class="overlay-menu">
     <ul>
        <?php foreach ($projecttypes as $projectType) {?>
@@ -117,3 +120,4 @@
   </div>
 </div>
 </div>
+

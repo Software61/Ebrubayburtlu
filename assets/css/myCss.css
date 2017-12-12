@@ -141,9 +141,3 @@ position: absolute;
     width: 255px;
     display: none;
 }
-.close-span{
-    font-size: 35px;
-    position: absolute;
-    margin-left: 90%;
-    cursor: pointer;
-}

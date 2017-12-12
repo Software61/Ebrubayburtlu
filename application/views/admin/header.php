@@ -35,6 +35,7 @@
 <link rel="manifest" href="<?=base_url('assets/icons/manifest.json')?>">
 <link rel="icon" href="<?=base_url('assets/icons/logo.ico')?>" type="image/x-icon" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <meta name="msapplication-config" content="<?=base_url('/assets/icons/browserconfig.xml')?>">
 <meta name="theme-color" content="#f2f2f2">
 
@@ -243,15 +244,3 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  $(".close-span").click(function(){
-    $("#overlay").removeClass("open").addClass("close");
-    $(".hamburger").removeClass("is-active");
-  })
-</script>
-
-<script type="text/javascript">
-  $(".dropbtn").click(function(){
-    $(".dropdown-content").toggle();
-  })
-</script>

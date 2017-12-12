@@ -12,4 +12,5 @@
 <script src="<?=base_url('assets/js/min/app-min.js')?>"></script>
 <script src="<?=base_url('assets/js/jquery.min.js')?>"></script>
 <script src="<?=base_url('assets/js/helperJS/admin.js')?>"></script>
+<script src="<?=base_url('/assets/js/myJs.js')?>"></script>
 </html>
