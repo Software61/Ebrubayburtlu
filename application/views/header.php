@@ -71,7 +71,6 @@
     </ul>
   </nav>
 </div>
-<div></div>
 <div class="content-wrapper"> 
 <div class="animated fadeIn">
 <section class="content">
