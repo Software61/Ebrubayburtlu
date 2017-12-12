@@ -7,6 +7,7 @@
   <a  target="blank" href="https://www.facebook.com/WeBuruk/">Developer : Ömür BURUK</a>
   </div>
 </div>
+<h1>Selamlar</h1>
 </footer>
 </body>
 <script src="<?=base_url('assets/js/min/app-min.js')?>"></script>
