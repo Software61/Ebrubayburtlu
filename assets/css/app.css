@@ -6933,10 +6933,6 @@ img {
 input::-webkit-input-placeholder {
   color: #ffffff !important; }
 
-::selection {
-  background: #ffffff;
-  color: #222222; }
-
 @media screen and (max-width: 39.9375em) {
   .no-js .top-bar {
     display: none; } }

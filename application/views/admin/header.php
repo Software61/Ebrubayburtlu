@@ -153,11 +153,20 @@
 <!-- Menu -->  
 <!-- Overlay Menu -->
 <div class="overlay" id="overlay" data-toggler=".open">
+  <span class="close-span" >X</span>
   <nav class="overlay-menu">
+
     <ul>
+
         <li class="element"><a href="<?=base_url('/Admin/Projects')?>">Projects</a></li>
         <li class="element"><a href="<?=base_url('/Admin/Info')?>">Info</a></li>
         <li class="element"><a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a></li>
+         <li>
+        <a href="<?=base_url('Admin/Settings')?>">Ayarlar</li></a>
+      <li>
+         <a href="<?=base_url('Admin/Logout')?>">Çıkış</li>
+      </a>
+
     </ul>
   </nav>
 </div>
@@ -210,10 +219,7 @@
 <a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a>
 
 </li>
- <li>
-        <a href="<?=base_url('Admin/Settings')?>">Ayarlar</li></a>
-      <li>
-         <a href="<?=base_url('Admin/Logout')?>">Çıkış</li></a>
+
     
 	</ul>
 	
@@ -236,6 +242,14 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $(".close-span").click(function(){
+    $("#overlay").removeClass("open").addClass("close");
+    $(".hamburger").removeClass("is-active");
+  })
+</script>
+
 <script type="text/javascript">
   $(".dropbtn").click(function(){
     $(".dropdown-content").toggle();
