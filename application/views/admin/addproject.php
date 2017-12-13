@@ -19,12 +19,21 @@
         <option value="1" <?php if(@$Vitrin=='1')echo 'selected="selected"';?>    >Evet</option>
         <option value="0" <?php if(@$Vitrin=='0') echo 'selected="selected"';?> >Hayır</option>
     </select>
-    <label class="lbl"> Video URL ( Opsiyonel ) </label>
-    <input type="text" name="videopath" class="formInput" value="<?php if(@$VideoPath) echo $VideoPath;?>">
+   
+
+    <label class="lbl"> * Link/Dosya </label>
+    <select class="formInput" id="video-upload" name="video-upload">
+      <option value="0">  Video URL ( Opsiyonel ) </option>
+      <option value="1">  Video Upload  </option>
+    </select>
+    <input type="text" placeholder="Url giriniz" name="video-url" id="video-url" class="formInput" value="<?php if(@$VideoPath) echo $VideoPath;?>">
+    <input type="file" name="videofile" id="videofile" accept=".mp4,.avi,.MKV">
+
 
     <label class="fileUpload" for="image_uploads">* Kapak Fotografı Seçin (PNG, JPG)</label>
-    <input type="file" id="image_uploads" required name="image_uploads" accept=".jpg, .jpeg, .png" style="position: absolute;" value="<?php if(@$Cover) echo $Cover;?>">
-    <input type="text" name="projectId" style="display: none" class="formInput" value="<?php if(@$ProjectId) echo $ProjectId;?>">
+    <input type="file" id="image_uploads" <?php if(@$ProjectId) echo ""; else echo "required";?>  name="image_uploads" accept=".jpg, .jpeg, .png" style="position: absolute;" value="<?php if(@$Cover) echo $Cover;?>">
+    <input type="text" id="url-upload" name="projectId" style="display: none" class="formInput" value="<?php if(@$ProjectId) echo $ProjectId;?>">
+
   </div>
   <div class="preview">
     <p>Seçili Dosya Yok</p>
@@ -36,6 +45,23 @@
 
 </div>
 </div>
+<script type="text/javascript">
+uploadchanged();
+$("#video-upload").on('change',function()
+{
+    uploadchanged();
+
+});
+function uploadchanged(){
+  if($('#video-upload').val()==0){
+      $("#videofile").css("display","none");
+      $("#video-url").css("display","block");
+    }else{
+      $("#videofile").css("display","block");
+      $("#video-url").css("display","none");
+    }
+}
+</script>
 
 
 <script src="<?=base_url('assets/js/preview.js')?>"></script>

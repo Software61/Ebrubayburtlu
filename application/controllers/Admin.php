@@ -138,29 +138,46 @@ class Admin extends CI_Controller {
 	public function InsertProject(){
 		$resimAdi=generate_uri(uniqid()).".jpg";
 		  		$config['upload_path']          = './assets/uploads/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = '*';
                 $config['max_size']             = 10000000000000000;
                 $config['max_width']            = 9999;
                 $config['max_height']           = 9999;
                 $config['file_name']			=$resimAdi;
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('image_uploads'))
-                {
-                        $error = array('error' => $this->upload->display_errors());
+         {
+               $error = array('error' => $this->upload->display_errors());
 
-                        printf(json_encode($error));
-                }
-                else
-                {
-
-                }
+                printf(json_encode($error));
+         }
+         else
+         {
+                	
+         }
+         unset($this->upload);
+        $projectType=$this->input->post('video-upload');
+        if($projectType==0){
+        	$project["VideoPath"]=$this->input->post('video-url');
+        }else {
+        	$uploaddir = './assets/videos/';
+        	$ext = pathinfo($_FILES['videofile']['name'], PATHINFO_EXTENSION);
+        	$videoName=generate_uri(uniqid()).'.'.$ext;
+        	$uploadfile = $uploaddir .$videoName;
+        	if (move_uploaded_file($_FILES['videofile']['tmp_name'], $uploadfile)) {
+				 $project["VideoPath"]=$videoName;
+			} else {
+					
+			}
+       		 	
+        }
+        $project["ExternalLink"]=$projectType;
 		$project["ProjectTypeId"]=$this->input->post('projecttype');
 		$project["Header"]=$this->input->post('header');
 		$project["Director"]=$this->input->post('director');
 		$project["With"]=$this->input->post('with');
 		$project["Vitrin"]=$this->input->post('vitrin');
 		$project["Cover"]=$resimAdi;
-		$project["VideoPath"]=$this->input->post('videopath');
+		
 		$this->Project_Model->InsertProject($project);
 		redirect(base_url('Admin/Projects'));
 	}

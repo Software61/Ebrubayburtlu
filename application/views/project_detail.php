@@ -34,7 +34,7 @@ if($project->VideoPath==""){
 </div>
 
 <?php }
-  else {
+  else if($project->ExternalLink==0){
 ?>
 
 <div class="row post__hero align-center">
@@ -49,9 +49,22 @@ if($project->VideoPath==""){
 
 </div>
 </div>
-<?php } ?>
+<?php }else{ ?>
+  <div class="row post__hero align-center">
+  <div class="small-12 medium-8 columns">
 
 
+  <div class="flex-video widescreen vimeo">
+  <video width="640" height="360" controls>
+    <source src="<?=base_url('assets/videos/'.$project->VideoPath)?>" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+  </video>
+</div>
+</div>
+</div>
+<?php }
+?>
 <div class="project__pagination">
   <div class="row">
        <?php if(sizeof($left)>0){
