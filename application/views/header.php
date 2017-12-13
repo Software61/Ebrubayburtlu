@@ -67,7 +67,7 @@
          <?php 
         foreach($social as $soc){
           ?>
-             <center><li class="element"><a target="blank"  href="<?=$soc->value?>"><img alt="<?=$soc->name?>" title="<?=$soc->name?>" src="<?=base_url('assets/icons/'.$soc->image)?>" /></a></li></center>
+             <center><li class="element social"><a target="blank"  href="<?=$soc->value?>"><img alt="<?=$soc->name?>" title="<?=$soc->name?>" src="<?=base_url('assets/icons/'.$soc->image)?>" /></a></li></center>
             <?php
         }
       ?>
