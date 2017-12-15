@@ -160,8 +160,9 @@
     <ul>
 
         <li class="element"><a href="<?=base_url('/Admin/Projects')?>">Projects</a></li>
+        <li class="element"><a href="<?=base_url('/Admin/Actors')?>">Actors</a></li>
+                <li class="element"><a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a></li>
         <li class="element"><a href="<?=base_url('/Admin/Info')?>">Info</a></li>
-        <li class="element"><a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a></li>
          <li>
         <a href="<?=base_url('Admin/Settings')?>">Ayarlar</li></a>
       <li>
@@ -213,12 +214,15 @@
 </li>
 
 <li>
-<a href="<?=base_url('/Admin/Info')?>">Info</a>
-
-</li>
-<li>
 <a href="<?=base_url('/Admin/SocialEdit')?>">Social Media</a>
+</li>
 
+<li>
+<a href="<?=base_url('/Admin/Actors')?>">Actors</a>
+</li>
+
+<li>
+<a href="<?=base_url('/Admin/Info')?>">Info</a>
 </li>
 
     

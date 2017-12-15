@@ -9,16 +9,17 @@ class Admin extends CI_Controller {
 		$this->load->model('ProjectType_Model');
 		$this->load->model('Label_Model');
 		$this->load->model('Admin_Model');
+		$this->load->model('Actor_Model');
 		$this->load->helper(array('form', 'url')); 
 		$this->load->helper("yardimci");
 
 		if($this->session->login==0 && base_url(uri_string())!=base_url('Admin/Login') && base_url(uri_string())!=base_url('Admin/DoLogin')){
-			$data['title']='Ebru Bayburtlu';
+			$data["title"]=$this->Label_Model->GetValue('site_name');
 			redirect(base_url('Admin/Login'));
 		}
 	}
 	public function Login(){
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['logo']=$this->Label_Model->GetValue('logo');
 		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$data['projects']=$this->Project_Model->GetAllProjects();
@@ -37,7 +38,7 @@ class Admin extends CI_Controller {
 			$this->session->login=0;
 			$data['logo']=$this->Label_Model->GetValue('logo');
 			$data["error"]="Kullanıcı adı veya şifre yanlış";
-			$data['title']='Ebru Bayburtlu';
+			$data["title"]=$this->Label_Model->GetValue('site_name');
 			$this->load->view('admin/header',$data);
 			$this->load->view('admin/login',$data);
 			$this->load->view('footer');
@@ -50,7 +51,7 @@ class Admin extends CI_Controller {
 			redirect(base_url('Admin/Login'));
 		}
 		$data['logo']=$this->Label_Model->GetValue('logo');
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['sliders']=$this->Project_Model->GetSlider();
 		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$data['projects']=$this->Project_Model->GetAllProjects();
@@ -119,7 +120,7 @@ class Admin extends CI_Controller {
 		redirect(base_url('Admin'));
 	}
 	public function Projects(){
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['logo']=$this->Label_Model->GetValue('logo');
 		$data['projects']=$this->Project_Model->GetAllProjects();
 		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
@@ -128,7 +129,7 @@ class Admin extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function AddProject(){
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['logo']=$this->Label_Model->GetValue('logo');
 		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$this->load->view('admin/header',$data);
@@ -183,7 +184,7 @@ class Admin extends CI_Controller {
 	}
 	public function EditProject($id){
 		$data['logo']=$this->Label_Model->GetValue('logo');
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 			$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$project=$this->Project_Model->GetProjectAsID($id);
 		$this->load->view('admin/header',$data);
@@ -221,7 +222,7 @@ class Admin extends CI_Controller {
 		redirect(base_url('Admin/Projects'));
 	}
 	public function EditProjectType(){
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['logo']=$this->Label_Model->GetValue('logo');
 		$data['projecttypes']=$this->Project_Model->GetAllProjectTypes();
 		$this->load->view('admin/header',$data);
@@ -244,7 +245,7 @@ class Admin extends CI_Controller {
 		redirect(base_url('Admin/EditProjectType'));
 	}
 	public function Info(){
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['logo']=$this->Label_Model->GetValue('logo');
 		$data['infoheader']=$this->Label_Model->GetValue('infoheader');
 		$data['info']=$this->Label_Model->GetValue('info');
@@ -293,7 +294,7 @@ class Admin extends CI_Controller {
 	}
 	public function SocialEdit(){
 		$data['logo']=$this->Label_Model->GetValue('logo');
-		$data['title']='Ebru Bayburtlu';
+		$data["title"]=$this->Label_Model->GetValue('site_name');
 		$data['imdb']=$this->Label_Model->GetValue('imdb');
 		$data['vimeo']=$this->Label_Model->GetValue('vimeo');
 		$data['facebook']=$this->Label_Model->GetValue('facebook');
@@ -319,7 +320,7 @@ class Admin extends CI_Controller {
 		redirect(base_url('Admin/SocialEdit'));
 	}
 	public function UpdateAdmin(){
-		$data['title']='Ebru Bayburtlu';
+		$data['title']=$data["title"]=$this->Label_Model->GetValue('site_name');
 		$account["Username"]=$this->input->post('username');
 		if($this->input->post('password')!=$this->input->post('passwordagain')){
 			$data['response']='<label style="color:red;"><b>Şifreler aynı değil.</b></label>';
@@ -338,7 +339,7 @@ class Admin extends CI_Controller {
 	}
 	public function Settings(){
 		$data['logo']=$this->Label_Model->GetValue('logo');
-		$data['title']='Ebru Bayburtlu';
+		$data['title']=$data["title"]=$this->Label_Model->GetValue('site_name');
 		$this->load->view('admin/header',$data);
 		$this->load->view('admin/settings',$data);
 		$this->load->view('footer');
@@ -346,6 +347,173 @@ class Admin extends CI_Controller {
 	public function Logout(){
 		$this->session->login=0;
 		redirect(base_url('Admin/Login'));
+	}
+
+
+	public function Actors(){
+		$data['logo']=$this->Label_Model->GetValue('logo');
+		$data['title']=$data["title"]=$this->Label_Model->GetValue('site_name');
+		$dataActor['actors']=$this->Actor_Model->GetAllActors();
+		$this->load->view('admin/header',$data);
+		$this->load->view('admin/actor',$dataActor);
+		$this->load->view('footer');
+	}
+
+	public function DeleteActor($id){
+		$this->Actor_Model->RemoveActor($id);
+		return true;
+	}
+
+	public function AddActor(){
+		$data['logo']=$this->Label_Model->GetValue('logo');
+		$data['title']=$data["title"]=$this->Label_Model->GetValue('site_name');
+		$this->load->view('admin/header',$data);
+		$this->load->view('admin/addactor');
+		$this->load->view('footer');
+	}
+	public function InsertActor(){
+		$resimAdi=generate_uri(uniqid()).".jpg";
+		  		$config['upload_path']          = './assets/actors/';
+                $config['allowed_types']        = '*';
+                $config['max_size']             = 10000000000000000;
+                $config['max_width']            = 9999;
+                $config['max_height']           = 9999;
+                $config['file_name']			=$resimAdi;
+        $this->load->library('upload', $config);
+		if($_FILES) {
+			// Dosyaları diziye aktar
+
+			foreach($_FILES['image_uploads'] as $key=>$val) {
+				$i = 1;
+				foreach($val as $v) {
+					$field_name = "file_".$i;
+					$_FILES[$field_name][$key] = $v;
+					$i++;
+				}
+			}
+		}
+		
+		// Gereksiz olanı sil
+		unset($_FILES['upload']);
+
+		// Cevapları ayarla
+		$error      = array();
+		$success    = array();
+
+		$i = 1;
+		$yuklenen = 0;
+		foreach($_FILES as $field_name => $file) {
+			if (!$this->upload->do_upload($field_name)) {
+				$error[$i] = $this->upload->display_errors();
+			} else {
+				$upload_data = $this->upload->data();
+				$actor["Photo"].=$upload_data['file_name'].",";
+				$success[$i] = $upload_data['file_name'];
+				$yuklenen++;
+			}
+			$i++;
+		}
+		if($yuklenen!=0){ $actor["Photo"]=substr($actor["Photo"], 0, -1);}
+        $projectType=$this->input->post('video-upload');
+        if($projectType==0){
+        	$actor["VideoPath"]=$this->input->post('video-url');
+        }else {
+        	$uploaddir = './assets/actors/videos/';
+        	$ext = pathinfo($_FILES['videofile']['name'], PATHINFO_EXTENSION);
+        	$videoName=generate_uri(uniqid()).'.'.$ext;
+        	$uploadfile = $uploaddir .$videoName;
+        	if (move_uploaded_file($_FILES['videofile']['tmp_name'], $uploadfile)) {
+				 $actor["VideoPath"]=$videoName;
+			} else {
+					
+			}
+       		 	
+        }
+        $actor["Name"]=$this->input->post('name');
+		$actor["Surname"]=$this->input->post('surname');
+		$actor["Address"]=$this->input->post('address');
+		$actor["Phone"]=$this->input->post('phone');
+		$actor["Age"]=$this->input->post('age');
+		
+		$this->Actor_Model->InsertActor($actor);
+		redirect(base_url('Admin/Actors'));
+	}
+	public function EditActor($id){
+		$data['logo']=$this->Label_Model->GetValue('logo');
+		$data['title']=$data["title"]=$this->Label_Model->GetValue('site_name');
+		$project=$this->Actor_Model->GetActorAsID($id);
+		$this->load->view('admin/header',$data);
+		$this->load->view('admin/addactor',$project,$data);
+		$this->load->view('footer');
+	}
+	public function UpdateActor(){
+		$resimAdi=generate_uri(uniqid()).".jpg";
+		  		$config['upload_path']          = './assets/actors/';
+                $config['allowed_types']        = '*';
+                $config['max_size']             = 10000000000000000;
+                $config['max_width']            = 9999;
+                $config['max_height']           = 9999;
+                $config['file_name']			=$resimAdi;
+        $this->load->library('upload', $config);
+		if($_FILES) {
+			// Dosyaları diziye aktar
+
+			foreach($_FILES['image_uploads'] as $key=>$val) {
+				$i = 1;
+				foreach($val as $v) {
+					$field_name = "file_".$i;
+					$_FILES[$field_name][$key] = $v;
+					$i++;
+				}
+			}
+		}
+		
+		// Gereksiz olanı sil
+		unset($_FILES['upload']);
+
+		// Cevapları ayarla
+		$error      = array();
+		$success    = array();
+
+		$i = 1;
+		$yuklenen = 0;
+		foreach($_FILES as $field_name => $file) {
+			if (!$this->upload->do_upload($field_name)) {
+				$error[$i] = $this->upload->display_errors();
+			} else {
+				$upload_data = $this->upload->data();
+				$actor["Photo"].=$upload_data['file_name'].",";
+				$success[$i] = $upload_data['file_name'];
+				$yuklenen++;
+			}
+			$i++;
+		}
+		if($yuklenen!=0){ $actor["Photo"]=substr($actor["Photo"], 0, -1);}
+        $projectType=$this->input->post('video-upload');
+        if($projectType==0){
+        	$actor["VideoPath"]=$this->input->post('video-url');
+        }else {
+        	if(@$_FILES["videofile"]){
+	        	$uploaddir = './assets/actors/videos/';
+	        	$ext = pathinfo($_FILES['videofile']['name'], PATHINFO_EXTENSION);
+	        	$videoName=generate_uri(uniqid()).'.'.$ext;
+	        	$uploadfile = $uploaddir .$videoName;
+	        	if (move_uploaded_file($_FILES['videofile']['tmp_name'], $uploadfile)) {
+					 $actor["VideoPath"]=$videoName;
+				} else {
+						
+				}
+       		 }	
+        }
+        $actorId=$this->input->post('actorId');
+        $actor["Name"]=$this->input->post('name');
+		$actor["Surname"]=$this->input->post('surname');
+		$actor["Address"]=$this->input->post('address');
+		$actor["Phone"]=$this->input->post('phone');
+		$actor["Age"]=$this->input->post('age');
+		
+		$this->Actor_Model->UpdateActor($actor,$actorId);
+		redirect(base_url('Admin/Actors'));
 	}
 
 }

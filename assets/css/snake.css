@@ -1,0 +1,34 @@
+
+		.mainSnake{
+			display: inline-block;
+			padding: 0;
+			max-width: 295px;
+    		max-height: 450px;
+            width: 100%;
+            height: : 100%;
+            flex: 0 0 100%;
+		}
+		.mainSnake img{
+			width: 100%;
+			height: 100%;
+		}
+    .containerSnake { margin-top:50px;}
+    	.snake{
+    		position: relative;
+    		overflow: hidden;
+    	}
+    	.overlaySnake{
+    		position: absolute;
+    		opacity: 0.9;
+
+    		text-align: center;
+    		padding-top: 60px;
+    		background-color: #222;
+        color:#fff;
+    	}
+    	.overlaySnake .title{
+    		font-size: 15px;
+    		font-weight: bold;
+    		display: block;
+    		width: 100%;
+    	}

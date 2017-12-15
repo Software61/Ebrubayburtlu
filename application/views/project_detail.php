@@ -39,14 +39,9 @@ if($project->VideoPath==""){
 
 <div class="row post__hero align-center">
 <div class="small-12 medium-8 columns">
-
-
 <div class="flex-video widescreen vimeo">
 <iframe src="<?=$project->VideoPath?>" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="640" height="360"></iframe><script src="//fast.wistia.net/assets/external/E-v1.js" async=""></script>
 </div>
-
-
-
 </div>
 </div>
 <?php }else{ ?>

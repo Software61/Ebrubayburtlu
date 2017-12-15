@@ -7,7 +7,7 @@ class Projects extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Project_Model');
 		$this->load->model('ProjectType_Model');
-			$this->load->model('Site_Model');
+		$this->load->model('Site_Model');
 	}
 
 	public function index()

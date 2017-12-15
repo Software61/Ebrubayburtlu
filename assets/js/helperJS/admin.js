@@ -26,3 +26,18 @@ function DeleteSlider(id){
         });
     }
   }
+
+    function DeleteActor(id){
+    if(confirm("Aktör silinecektir. Onaylıyor musunuz?")){
+        $.ajax({
+            type:'GET',
+            url:"DeleteActor/"+id,
+            data:{},
+            success:function(data){
+                var className=".forRemove"+id;
+                $(className).remove();
+                location.reload();
+            }
+        });
+    }
+  }

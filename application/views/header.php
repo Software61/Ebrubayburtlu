@@ -32,6 +32,7 @@
 <meta name="msapplication-config" content="<?=base_url('/assets/icons/browserconfig.xml')?>">
 <meta name="theme-color" content="#f2f2f2">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/app.css')?>">
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/snake.css')?>">
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -63,6 +64,7 @@
        <?php foreach ($projecttypes as $projectType) {?>
         <li class="element"><a href="<?=base_url('/Projects/Type/'.$projectType->Name)?>"><?=$projectType->Name?></a></li>
       <?php } ?>
+        <li class="element"><a href="<?=base_url('/Actors')?>">Actors</a></li>
         <li class="element"><a href="<?=base_url('/Info')?>">Info</a></li>
          <?php 
         foreach($social as $soc){
@@ -102,6 +104,9 @@
     </ul>
 </li>
 
+<li>
+<a href="<?=base_url('/Actors')?>">Actors</a>
+</li>
 <li>
 <a href="<?=base_url('/Info')?>">Info</a>
 </li>

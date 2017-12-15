@@ -13,4 +13,7 @@
 <script src="<?=base_url('assets/js/jquery.min.js')?>"></script>
 <script src="<?=base_url('assets/js/helperJS/admin.js')?>"></script>
 <script src="<?=base_url('/assets/js/myJs.js')?>"></script>
+<script src="<?=base_url('/assets/js/snake.js')?>"></script>
+<script src="<?=base_url('assets/js/helperJS/videoPageControl.js')?>"></script>
+
 </html>
